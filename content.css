@@ -1,0 +1,74 @@
+/* content.css — Wispr It overlay styles */
+
+#wispr-overlay {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2147483647; /* max z-index */
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.18),
+    0 1px 4px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Recording state — dark red tint */
+#wispr-overlay.wispr-recording {
+  background: rgba(30, 10, 10, 0.82);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+}
+
+/* Processing state — dark neutral */
+#wispr-overlay.wispr-processing {
+  background: rgba(20, 20, 30, 0.82);
+  border: 1px solid rgba(120, 120, 200, 0.35);
+}
+
+/* Done state — dark green tint */
+#wispr-overlay.wispr-done {
+  background: rgba(10, 25, 15, 0.82);
+  border: 1px solid rgba(60, 200, 100, 0.4);
+}
+
+/* Error state — red */
+#wispr-overlay.wispr-error {
+  background: rgba(40, 10, 10, 0.88);
+  border: 1px solid rgba(255, 60, 60, 0.5);
+}
+
+/* Pulsing red dot for recording */
+.wispr-dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff4444;
+  flex-shrink: 0;
+  animation: wispr-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes wispr-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(255, 68, 68, 0.6);
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.85;
+    box-shadow: 0 0 0 5px rgba(255, 68, 68, 0);
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wispr It — Settings</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <span class="logo">🎙️</span>
+      <div>
+        <h1>Wispr It</h1>
+        <p class="subtitle">Voice Dictation for Webflow</p>
+      </div>
+    </header>
+
+    <form id="settings-form" autocomplete="off">
+      <section>
+        <h2>API Keys</h2>
+
+        <div class="field">
+          <label for="openai-key">OpenAI API Key</label>
+          <div class="input-row">
+            <input
+              type="password"
+              id="openai-key"
+              placeholder="sk-…"
+              autocomplete="new-password"
+              spellcheck="false"
+            />
+            <button type="button" class="toggle-btn" data-target="openai-key" title="Show/hide">👁</button>
+          </div>
+          <span class="hint">Used for Whisper transcription</span>
+        </div>
+
+        <div class="field">
+          <label for="anthropic-key">Anthropic API Key</label>
+          <div class="input-row">
+            <input
+              type="password"
+              id="anthropic-key"
+              placeholder="sk-ant-…"
+              autocomplete="new-password"
+              spellcheck="false"
+            />
+            <button type="button" class="toggle-btn" data-target="anthropic-key" title="Show/hide">👁</button>
+          </div>
+          <span class="hint">Used for AI rewrite (optional)</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Preferences</h2>
+
+        <div class="field field-inline">
+          <label for="enable-rewrite">Enable AI rewrite</label>
+          <label class="toggle">
+            <input type="checkbox" id="enable-rewrite" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="hint indent">
+          Sends transcription to Claude Haiku to clean up grammar and remove filler words.
+        </p>
+      </section>
+
+      <section>
+        <h2>Hotkey</h2>
+        <div class="hotkey-display">
+          <kbd id="hotkey-label">Ctrl + Shift + Space</kbd>
+          <button type="button" id="reset-hotkey" class="btn-secondary">Reset to default</button>
+        </div>
+        <p class="hint">On Mac, Ctrl is replaced by ⌘ Cmd automatically.</p>
+      </section>
+
+      <div class="actions">
+        <button type="submit" class="btn-primary">Save settings</button>
+        <span id="save-msg" class="save-msg" aria-live="polite"></span>
+      </div>
+    </form>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

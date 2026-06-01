@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Wispr It — Voice Dictation",
+  "version": "1.0.0",
+  "description": "Voice dictation tool powered by OpenAI Whisper and Claude. Press Ctrl+Shift+Space to dictate.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Wispr It Settings"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
