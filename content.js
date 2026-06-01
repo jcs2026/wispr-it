@@ -1,5 +1,7 @@
 // content.js — hotkey listener, mic recording, overlay UI, text injection
 
+console.log('[Wispr] content script loaded on', location.href);
+
 (function () {
   'use strict';
 
